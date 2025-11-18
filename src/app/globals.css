@@ -10,8 +10,8 @@
 }
 
 :root * {
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
+  font-family: Geist, "Geist Fallback";
+  font-weight: 600;
 }
 
 @theme inline {

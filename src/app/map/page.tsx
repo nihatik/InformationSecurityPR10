@@ -1,3 +1,3 @@
 export default function MapPage() {
-    return <h1>Карта</h1>
+    return <h2>Карта</h2>
 }
