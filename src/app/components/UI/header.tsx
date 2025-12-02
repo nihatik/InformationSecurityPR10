@@ -1,9 +1,10 @@
 "use client";
 
-import { useDisclosure } from "@heroui/react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@heroui/react";
 import Image from "next/image";
-import AuthModal from "./modal";
+import LoginModal from "./modals/login.modal";
+import RegistrationModal from "./modals/registration.modal";
+import { useState } from "react";
 
 export const Logo = () => {
   return (
@@ -24,8 +25,8 @@ const navItems = [
 ];
 
 export default function Header() {
-  const login = useDisclosure();
-  const signup = useDisclosure();
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   return (
     <>
@@ -47,19 +48,18 @@ export default function Header() {
 
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
-            <Button variant="light" onPress={login.onOpen}>Login</Button>
+            <Button variant="light" onPress={() => setIsLoginOpen(true)}>Войти</Button>
           </NavbarItem>
           <NavbarItem>
-            <Button color="primary" variant="flat" onPress={signup.onOpen}>
-              Sign Up
+            <Button color="primary" variant="flat" onPress={() => setIsRegistrationOpen(true)}>
+              Регистрация
             </Button>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
 
-      {/* Модалки */}
-      <AuthModal isOpen={login.isOpen} onOpenChange={login.onOpenChange} mode="login" />
-      <AuthModal isOpen={signup.isOpen} onOpenChange={signup.onOpenChange} mode="signup" />
+      <RegistrationModal isOpen={isRegistrationOpen} onClose={() => setIsRegistrationOpen(false)} />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
   );
 }

@@ -9,6 +9,10 @@
   --foreground: #171717;
 }
 
+h3{
+  color: var(--foreground)
+}
+
 :root * {
   font-family: Geist, "Geist Fallback";
   font-weight: 600;
@@ -53,4 +57,5 @@ body {
 
 button{
   color: var(--foreground);
+  transition: 0.3s;
 }
