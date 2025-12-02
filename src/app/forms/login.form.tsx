@@ -63,7 +63,7 @@ interface IProps {
             />
             <div className="flex w-[100%] gap-4 items-center pt-8 justify-end">
                 <Button variant="light" onPress={onClose}>Отмена</Button>
-                <Button type="submit" color="primary">Зарегистрироваться</Button>
+                <Button type="submit" color="primary">Войти</Button>
             </div>
         </Form>
     )
